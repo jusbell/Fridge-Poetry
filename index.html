@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Test</title>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.event.drag-2.0.js"></script>
+	<script type="text/javascript" src="js/jquery.path.js"></script>
+	<script type="text/javascript" src="node_modules/socket.io/node_modules/socket.io-client/dist/socket.io.min.js"></script>
+	<script type="text/javascript" src="client.js"></script>
+<style type="text/css">
+html,body{
+	height:100%;
+}
+.draggable, [draggable] {
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+body{
+	font-family:Arial;
+	font-size:13px;
+}
+#fridge{
+	width:800px;
+	height:600px;
+	border:1px solid black;
+	position:relative;
+	margin:0 auto;
+}
+#overlay{
+	position:fixed;
+	background-color: #000000;
+	z-index: 1500;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+	filter: alpha(opacity=60);
+	opacity:.6;
+}
+#message{
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	width:300px;
+	margin-left:-150px;
+	z-index: 2000;
+	overflow: auto;
+	background-color:white;
+}
+.word{
+	padding:2px 4px;
+	border:1px solid #ccc;
+	text-align: center;
+	cursor: move;
+	position:absolute;
+	background-color:white;
+	top:0;
+	left:0;
+}
+.word.locked{
+	cursor: wait;
+	color:#B94A48;
+}
+.dragging{
+	box-shadow: -2px 2px 5px #ccc;
+}
+p{
+	margin:.5em;
+	padding:.5em;
+	border:1px solid #ccc;
+	height:100%;
+	text-align:center;
+}
+p.error{
+	color:#B94A48;
+}
+</style>
+</head>
+<body>
+	<div id="fridge"></div>
+	<div id="overlay"></div>
+	<div id="message">
+		<p></p>
+	</div>
+</body>
+</html>
