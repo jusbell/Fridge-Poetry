@@ -9,7 +9,6 @@ var interval = 200,
 	fridge = null,
 	fridgeH = null,
 	fridgeW = null,
-	words = null,
 	message = null,
 	overlay = null,
 	httpPort = 8090,
@@ -37,7 +36,7 @@ function canMove(){
 			data:{id:this.id},
 			dataType:'json',
 			async:false,
-			success:function(data, textStatus, jqXHR){
+			success:function(data){
 				isLocked = data.locked;
 				if (broadcastLockEvent){
 					socket.emit('lock', data);
@@ -84,7 +83,7 @@ function init(data){
  * @param  {Object} data Data associated with the move event
  */
 function moveWords(data){
-	arr = JSON.parse(data);
+	var arr = JSON.parse(data);
 	if (!$.isArray(arr)){
 		arr = [arr];
 	}
@@ -246,9 +245,9 @@ var DragHandler = {
 $(function(){
 	overlay = $('#overlay').hide();
 	message = $('#message').hide();
-	fridge = $('#fridge'),
-	fridgeH = fridge.outerHeight(),
-	fridgeW = fridge.outerWidth(),
+	fridge = $('#fridge');
+	fridgeH = fridge.outerHeight();
+	fridgeW = fridge.outerWidth();
 
 	socket.on('init', init);
 	socket.on('update', moveWords);
