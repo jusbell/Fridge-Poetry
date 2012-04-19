@@ -72,16 +72,6 @@ function Word(text, x, y){
 	this.id = 'w' + uid();
 }
 
-function shuffle(arr){
-    var result = [], rand;
-    arr.forEach(function(value, i) {
-		rand = Math.floor(Math.random() * (i + 1));
-		result[i] = result[rand];
-		result[rand] = value;
-    });
-    return result;
-}
-
 /**
  * Generates a unique id
  * @return {int} The unique id
