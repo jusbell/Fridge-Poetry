@@ -1,3 +1,12 @@
+/*
+ * Fridge Poetry Client
+ * https://github.com/jusbell/Fridge-Poetry
+ *
+ * Copyright 2012, Justin Brydebell
+ *
+ * Licensed under the MIT license:
+ * http://www.opensource.org/licenses/MIT
+ */
 (function(){
 
 var interval = 200,
